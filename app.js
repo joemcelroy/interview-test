@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 
 // Connect to local MongoDB
 var dbUrl = process.env.MONGOHQ_URL || 'mongodb://localhost/opentable';
+
 mongoose.connect(dbUrl);
 
 var db = mongoose.connection;

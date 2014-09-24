@@ -2,8 +2,7 @@
 <html lang="en" ng-app="openTableApp">
 <head>
   <title>Restaurant Reservations</title>
-  <link rel="stylesheet" href="stylesheets/bootstrap.min.css"/>
-  <link rel="stylesheet" href="stylesheets/style.css"/>
+  <link rel="stylesheet" href="build/app.css"/>
 </head>
 <body>
   <div class="container-fluid">
@@ -12,11 +11,8 @@
     <ng-view>
     </ng-view>
   </div>
-  <script src="/lib/angular.min.js"></script>
-  <script src="/lib/angular-route.min.js"></script>
-  <script src="/lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
-  <script src="/lib/ui-utils.min.js"></script>
-  <script src="js/angular-app.js"></script>
-  <script src="js/controllers.js"></script>
+  <script src="build/vendor.js"></script>
+  <script src="build/templates.js"></script>
+  <script src="build/app.js"></script>
 </body>
 </html>

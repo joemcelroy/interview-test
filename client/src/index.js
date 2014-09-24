@@ -1,17 +1,17 @@
-var openTableApp = angular.module('openTableApp', ['ngRoute', 'ui.bootstrap', 'ui.utils', 'ReservationControllers'])
+var openTableApp = angular.module('openTableApp', ['ngRoute', 'ui.bootstrap', 'ui.utils', 'ReservationControllers','opentable-templates'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.
     when('/reservations', {
-      templateUrl: 'templates/reservation-list.html',
+      templateUrl: 'partials/reservation-list.html',
       controller: 'ReservationsCtrl'
     }).
     when('/reservations/new', {
-      templateUrl: 'templates/reservation-detail.html',
+      templateUrl: 'partials/reservation-detail.html',
       controller: 'ReservationDetailCtrl'
     }).
     when('/reservations/:reservationId', {
-      templateUrl: 'templates/reservation-detail.html',
+      templateUrl: 'partials/reservation-detail.html',
       controller: 'ReservationDetailCtrl'
     }).
     otherwise({

@@ -3,6 +3,7 @@ var concat = require('gulp-concat');
 var html2js = require('gulp-html2js');
 var del = require('del');
 var karma = require('gulp-karma');
+var nodemon = require('gulp-nodemon');
 
 var paths = {
   appScripts: ['client/src/**/*.js'],
@@ -23,6 +24,9 @@ var paths = {
     'bower_components/angular-mocks/angular-mocks.js',
     'public/build/app.js',
     'client/test/unit/**/*.js'
+  ],
+  templatePaths: [
+    'client/src/partials/**/*.html'
   ]
 };
 
@@ -38,7 +42,12 @@ gulp.task('test', function() {
 
 })
 
-gulp.watch(paths.testPaths, ['test']);
+gulp.task('server', function() {
+   nodemon({ script: 'app.js' })
+    .on('restart', function () {
+      console.log('restarted!')
+    })
+})
 
 
 gulp.task('clean', function(cb) {
@@ -46,7 +55,7 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('templates', ['clean'], function() {
-  gulp.src('client/src/partials/**/*.html')
+  gulp.src(paths.templatePaths)
     .pipe(html2js({
       outputModuleName:'opentable-templates',
       base:"client/src"
@@ -66,6 +75,10 @@ var createConcatTask = function(name, pathsGlob, concatName ) {
 
 }
 
+
+gulp.watch(paths.testPaths, ['test']);
+gulp.watch(paths.templatePaths, ['templates']);
+
 createConcatTask('appScripts', paths.appScripts, 'app.js');
 createConcatTask('vendorScripts', paths.vendorScripts, 'vendor.js');
 createConcatTask('css', paths.css, 'app.css');
@@ -73,4 +86,4 @@ createConcatTask('css', paths.css, 'app.css');
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('build', ['appScripts','vendorScripts' , 'css', 'templates'])
-gulp.task('default', ['build', 'test']);
+gulp.task('default', ['build', 'test', 'server']);

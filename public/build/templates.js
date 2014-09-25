@@ -46,15 +46,6 @@ module.run(["$templateCache", function($templateCache) {
     "  <div class=\"col-xs-3\">\n" +
     "    <button class='btn btn-primary' ng-click=\"add()\" style=\"margin-right:50px\">Add</button>\n" +
     "  </div>\n" +
-    "  <div class=\"col-xs-3\">\n" +
-    "    <select name=\"time\" class=\"form-control\" ng-model=\"startReservation\" ng-options=\"reservation.date for reservation in reservations | orderBy:'date' | unique:'date'\" ><option value=\"\" disabled selected>Start Date</option></select>\n" +
-    "  </div>\n" +
-    "  <div class=\"col-xs-3\">\n" +
-    "    <select name=\"time\" class=\"form-control\" ng-model=\"endReservation\" ng-options=\"reservation.date for reservation in reservations | orderBy:'date' | unique:'date'\"><option value=\"\" disabled selected>End Date</option></select>\n" +
-    "  </div>\n" +
-    "  <div class=\"col-xs-3\">\n" +
-    "    <input id=\"top-search\" type=\"search\" class=\"form-control pull-right\" placeholder=\"search\" ng-model=\"searchBy\"/>\n" +
-    "  </div>\n" +
     "</div>\n" +
     "<br/>\n" +
     "<table class=\"table table-hover\">\n" +

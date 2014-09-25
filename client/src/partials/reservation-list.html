@@ -2,15 +2,6 @@
   <div class="col-xs-3">
     <button class='btn btn-primary' ng-click="add()" style="margin-right:50px">Add</button>
   </div>
-  <div class="col-xs-3">
-    <select name="time" class="form-control" ng-model="startReservation" ng-options="reservation.date for reservation in reservations | orderBy:'date' | unique:'date'" ><option value="" disabled selected>Start Date</option></select>
-  </div>
-  <div class="col-xs-3">
-    <select name="time" class="form-control" ng-model="endReservation" ng-options="reservation.date for reservation in reservations | orderBy:'date' | unique:'date'"><option value="" disabled selected>End Date</option></select>
-  </div>
-  <div class="col-xs-3">
-    <input id="top-search" type="search" class="form-control pull-right" placeholder="search" ng-model="searchBy"/>
-  </div>
 </div>
 <br/>
 <table class="table table-hover">

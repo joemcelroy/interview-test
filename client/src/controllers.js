@@ -24,23 +24,10 @@ angular.module('ReservationControllers', [])
 
   };
 
-  $scope.dateRange = function (reservation){
-    if ($scope.startReservation){
-      if ($scope.endReservation){
-        return reservation.date >= $scope.startReservation.date && reservation.date <= $scope.endReservation.date;
-      } else {
-        return reservation.date >= $scope.startReservation.date;
-      }
-    } else if ($scope.endReservation){
-      return reservation.date <= $scope.endReservation.date;
-    } else {
-      return true;
-    }
-  };
-
   $http.get('/reservations').success(function(data) {
     $scope.reservations = data;
   });
+  
 }])
 
 
